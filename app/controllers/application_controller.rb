@@ -27,6 +27,15 @@ class ApplicationController < Sinatra::Base
     )
     new_user.to_json
   end
+  post '/new_task' do
+    new_task=Task.create(
+      title: params[:title],
+      description: params[:description],
+      due_date: params[:due_date],
+      status: params[:status]
+    )
+    new_task.to_json
+  end
   patch '/users/:id' do 
     user=User.find(params[:id])
     user.update(

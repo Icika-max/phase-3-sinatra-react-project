@@ -11,21 +11,42 @@ import { NavLink } from 'react-router-dom';
 
 
 function Navbar() {
-    return (
-        <nav className="Navbar">
-      
-       <NavLink to="/home">Home</NavLink>
-       <NavLink to="/">Login</NavLink>
-       <NavLink to="/create-task">CreateTask</NavLink>
-       <NavLink to="/task">Tasks</NavLink>
-       <NavLink to="/task/:id">TaskDetail</NavLink>
-       <NavLink to="/taskCreationForm">TaskCreationForm/</NavLink>
-       <NavLink to="/userTest">UserTest</NavLink>
-       
-        
-         
+ 
 
+    return (
+      <>
+        <nav className="Navbar">
+          <div className='navbar-container'> 
+          <div className='navLinks'>
+<ul>
+        <li className='nav-item'>
+       <NavLink to="/home" className='nav-links'>Home</NavLink>
+       </li>
+       <li className='nav-item'>
+       <NavLink to="/" className='nav-links'>Login</NavLink>
+      </li>
+      <li className='nav-item'>
+       <NavLink to="/create-task" className='nav-links'>CreateTask</NavLink>
+       </li>
+       <li className='nav-item'>
+       <NavLink to="/task" className='nav-links'>Tasks</NavLink>
+       </li>
+       <li className='nav-item'>
+       <NavLink to="/task/:id" className='nav-links'>TaskDetail</NavLink>
+       </li>
+       <li className='nav-item'>
+       <NavLink to="/taskCreationForm" className='nav-links'>TaskCreationForm/</NavLink>
+       </li>
+       <li className='nav-item'>
+       <NavLink to="/userTest" className='nav-links'>UserTest</NavLink>
+       </li>
+       
+       </ul>
+       </div>
+       </div>
     </nav>
+
+    </>
     );
   }
   

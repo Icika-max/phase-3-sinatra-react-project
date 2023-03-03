@@ -1,9 +1,19 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 // import { Register } from "./register"
 import { useNavigate } from "react-router"
 
 
-export const Login=(props)=>{
+export const Login=({props})=>{
+
+
+    const [user, setUser]=useState([])
+  useEffect(()=>{
+    fetch ("http://localhost:9292/users")
+    .then(r=>r.json())
+    .then(data=>setUser(data))
+  },[])
+  console.log(user)
+
     let redirect = useNavigate()
     const [email, setEmail]=useState("")
     const [password, setPassword]= useState("")
@@ -11,6 +21,22 @@ export const Login=(props)=>{
         e.preventDefault()
         console.log(email)
     }
+    function handleLogin(){
+        const userExist= user.find((r)=>r.email ===email)
+
+        if (userExist){
+            console.log("testing")
+            redirect ("/home")
+        
+        }
+        else{
+            console.log("not exists")
+            alert("invalid email or password")
+        }
+
+    }
+   
+    
     // const[currentform, setCurrentForm]=useState("Login")
 
     // const toggleForm=(forName)=>{
@@ -24,12 +50,12 @@ export const Login=(props)=>{
         <div className="auth-form-container">
            
             <h2>Login</h2>
-        <form className="login-form" onSubmit={handleSubmit} action="http://localhost:9292/new_user" method="post">
+        <form className="login-form" onSubmit={handleSubmit} action="http://localhost:9292/login" method="post">
             <label htmlFor="email">email</label>
-            <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+            <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email" required />
             <label htmlFor="password">password</label>
-            <input value={password}  onChange={(e)=>setPassword(e.target.value)}type="password" placeholder="*******" id="password" name="name" />
-            <button type="submit">Login</button>
+            <input value={password}  onChange={(e)=>setPassword(e.target.value)}type="password" placeholder="*******" id="password" name="name" required />
+            <button type="submit" onClick={handleLogin}>Login</button>
         </form>
         <button className="link-btn"  onClick={()=>redirect("/register")}>Don't have an account? Register here</button>
         </div>

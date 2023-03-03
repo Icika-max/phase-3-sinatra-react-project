@@ -1,6 +1,9 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router"
+
 
 export const Register=(props)=>{
+    let redirect = useNavigate()
     const [name, setName]=useState("")
     const [email, setEmail]=useState("")
     const [password, setPassword]= useState("")
@@ -20,7 +23,10 @@ export const Register=(props)=>{
             <input value={password}  onChange={(e)=>setPassword(e.target.value)}type="password" placeholder="*******" id="password" name="name" />
             <button type="submit">Register</button>
         </form>
-        <button className="link-btn" onClick={()=>props.onformSwitch('login')}>Already have an account? Login here</button>
+        <button className="link-btn" onClick={()=>redirect('/')}>Already have an account? Login here</button>
+
+        {/* <button className="link-btn"  onClick={()=>redirect("/register")}>Don't have an account? Register here</button> */}
         </div>
     )
 }
+export default Register

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import TaskList from './TaskList';
-import TaskCreationForm from './TaskCreationForm';
+import TaskCreationForm from './taskCreationForm';
+import TaskList from './taskList';
 
 function Home({ user }) {
+  
   const [tasks, setTasks] = useState([]);
 
   function handleTaskSubmit(newTask) {
@@ -11,7 +12,10 @@ function Home({ user }) {
 
   return (
     <div>
-      <h1>Welcome, {user.name}!</h1>
+      <div>
+        <img src="https://img.freepik.com/free-vector/office-time-management-composition_1284-73496.jpg?size=626&ext=jpg" alt="#" />
+      </div>
+      <h1>Welcome!</h1>
       <TaskCreationForm onSubmit={handleTaskSubmit} />
       <TaskList tasks={tasks} />
     </div>

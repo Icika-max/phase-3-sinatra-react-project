@@ -8,16 +8,28 @@ import './App.css';
 import { Login } from './components/login';
 // import { Register } from './components/register';
 import TaskCreationForm from './components/taskCreationForm';
-import UserTest from './components/UserTest';
+// import AddUser from './components/AddUser';
 import Home from './components/Home';
 import TaskList from './components/taskList';
-import TaskDetail from './components/taskDetails';
+// import TaskDetail from './components/taskDetails';
 import Navbar from './components/navbar';
 import Register from './components/register';
 import TaskListItem from './components/taskListItem';
+import AddUser from './components/AddUser';
 
 
 function App() {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // function handleLogin() {
+  //   // your login logic here
+  //   setIsLoggedIn(true);
+  // }
+
+  // function handleLogout() {
+  //   // your logout logic here
+  //   setIsLoggedIn(false);
+  // }
   // const[currentform, setCurrentForm]=useState("Login")
 
   // const toggleForm=(forName)=>{
@@ -25,6 +37,14 @@ function App() {
   // }
   return (
     <div className="App">
+     
+          {/* {isLoggedIn ? (
+        <Navbar onLogout={handleLogout} />
+      ) : (
+        <Login onLogin={handleLogin} />
+      )} */}
+   
+
       
      {/* {
      currentform === "Login"? <Login onformSwitch={toggleForm}/> : <Register onformSwitch={toggleForm}/>
@@ -44,7 +64,7 @@ function App() {
           <Route path="/tasks" element={<TaskList/>} />
           <Route path="/task/:id" element={<TaskListItem/>} />
           <Route path="/taskCreationForm" element={<TaskCreationForm/>} />
-          <Route path="/usertest" element={<UserTest/>} />
+          <Route path="/adduser" element={<AddUser/>} />
           <Route path="/register" element={<Register/>} />
 
      </Routes> 

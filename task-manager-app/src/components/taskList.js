@@ -1,7 +1,15 @@
 import React from 'react';
-import TaskListItem from './TaskListItem';
+import TaskListItem from './taskListItem';
+import { useEffect, useState } from 'react';
 
-function TaskList({ tasks }) {
+function TaskList() {
+  const [tasks, setTasks]=useState([])
+  useEffect(()=>{
+    fetch ("http://localhost:9292/tasks")
+    .then(r=>r.json())
+    .then(data=>setTasks(data))
+  },[])
+  console.log(tasks)
   return (
     <div>
       <h2>Tasks</h2>

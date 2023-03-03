@@ -1,6 +1,6 @@
 import React from 'react'
 
-function UserTest() {
+function AddUser() {
   return (
     <div>
         <form action="http://localhost:9292/new_user" method="post">
@@ -13,6 +13,6 @@ function UserTest() {
   )
 }
 
-export default UserTest
+export default AddUser
 
 

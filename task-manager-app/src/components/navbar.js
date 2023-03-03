@@ -22,23 +22,23 @@ function Navbar() {
         <li className='nav-item'>
        <NavLink to="/home" className='nav-links'>Home</NavLink>
        </li>
-       <li className='nav-item'>
+       {/* <li className='nav-item'>
        <NavLink to="/" className='nav-links'>Login</NavLink>
-      </li>
+      </li> */}
       <li className='nav-item'>
        <NavLink to="/create-task" className='nav-links'>CreateTask</NavLink>
        </li>
-       <li className='nav-item'>
+       {/* <li className='nav-item'>
        <NavLink to="/task" className='nav-links'>Tasks</NavLink>
+       </li> */}
+       <li className='nav-item'>
+       <NavLink to="/tasks" className='nav-links'>TaskListItem</NavLink>
        </li>
        <li className='nav-item'>
-       <NavLink to="/task/:id" className='nav-links'>TaskDetail</NavLink>
+       <NavLink to="/taskCreationForm" className='nav-links'>TaskCreationForm</NavLink>
        </li>
        <li className='nav-item'>
-       <NavLink to="/taskCreationForm" className='nav-links'>TaskCreationForm/</NavLink>
-       </li>
-       <li className='nav-item'>
-       <NavLink to="/userTest" className='nav-links'>UserTest</NavLink>
+       <NavLink to="/addUser" className='nav-links'>AddUser</NavLink>
        </li>
        
        </ul>

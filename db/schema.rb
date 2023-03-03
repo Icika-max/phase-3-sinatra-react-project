@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 2023_03_01_092813) do
   create_table "tasks", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
-    t.datetime "due_date", null: false
-    t.boolean "status", default: false, null: false
-    t.integer "user_id", null: false
+    t.datetime "due_date"
+    t.boolean "status"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "status", "due_date"], name: "index_tasks_on_user_id_and_status_and_due_date"
@@ -31,5 +31,4 @@ ActiveRecord::Schema.define(version: 2023_03_01_092813) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "tasks", "users"
 end

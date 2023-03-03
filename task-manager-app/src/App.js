@@ -14,6 +14,7 @@ import TaskList from './components/taskList';
 import TaskDetail from './components/taskDetails';
 import Navbar from './components/navbar';
 import Register from './components/register';
+import TaskListItem from './components/taskListItem';
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
        <Route path="/home" element={<Home/>} />
           <Route path="/create-task" element={<TaskCreationForm/>}/>
           <Route path="/tasks" element={<TaskList/>} />
-          <Route path="/task/:id" element={<TaskDetail/>} />
+          <Route path="/task/:id" element={<TaskListItem/>} />
           <Route path="/taskCreationForm" element={<TaskCreationForm/>} />
           <Route path="/usertest" element={<UserTest/>} />
           <Route path="/register" element={<Register/>} />

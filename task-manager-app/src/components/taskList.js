@@ -1,22 +1,17 @@
-import React from "react";
-// import { useEffect } from "react";
+import React from 'react';
+import TaskListItem from './TaskListItem';
 
-function TaskList({ tasks, onTaskClick }) {
-    
-    return (
+function TaskList({ tasks }) {
+  return (
+    <div>
+      <h2>Tasks</h2>
       <ul>
         {tasks.map((task) => (
-          <li key={task.id} onClick={() => onTaskClick(task.id)}>
-            <strong>{task.name}</strong>
-            <br />
-            {task.description}
-            <br />
-            Due Date: {task.dueDate}
-            <br />
-            Status: {task.completed ? 'Completed' : 'Incomplete'}
-          </li>
+          <TaskListItem key={task.id} task={task} />
         ))}
       </ul>
-    );
-  }
-  export default TaskList
+    </div>
+  );
+}
+
+export default TaskList;

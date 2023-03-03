@@ -1,22 +1,30 @@
 import React from 'react';
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import Login from './components/Login';
 // import TaskCreationForm from './components/TaskCreationForm';
 // import TaskList from './components/TaskList';
 // import TaskDetail from './components/TaskDetail';
+// import Home from './Home';
+// import TaskCreationForm from './taskCreationForm';
+// import UserTest from './UserTest';
+
 
 function Navbar() {
     return (
         <nav className="Navbar">
-    {/* //   <BrowserRouter>
-    //     <Switch>
-    //       <Route exact path="/" component={Login} />
-    //       {/* <Route path="/dashboard" component={Dashboard} /> */}
-    {/* //       <Route path="/create-task" component={TaskCreationForm} />
-    //       <Route path="/tasks" component={TaskList} />
-    //       <Route path="/task/:id" component={TaskDetail} />
-    //     </Switch> */}
-    {/* //   </BrowserRouter> */} 
+      
+       <NavLink to="/home">Home</NavLink>
+       <NavLink to="/">Login</NavLink>
+       <NavLink to="/create-task">CreateTask</NavLink>
+       <NavLink to="/task">Tasks</NavLink>
+       <NavLink to="/task/:id">TaskDetail</NavLink>
+       <NavLink to="/taskCreationForm">TaskCreationForm/</NavLink>
+       <NavLink to="/userTest">UserTest</NavLink>
+       
+        
+         
+
     </nav>
     );
   }

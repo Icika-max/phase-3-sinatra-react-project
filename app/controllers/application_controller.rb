@@ -1,10 +1,15 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
-  
+  configure do
+    enable :sessions
+    set :session_secrete, "secret"
+  end
   # Add your routes here
   get "/" do
     { message: "Good luck with your project!" }.to_json
   end
+
+  
 
   get '/users' do
     users=User.all
@@ -48,6 +53,10 @@ class ApplicationController < Sinatra::Base
     )
     user.to_json
   end
-  
+  post '/login' do
+   user= User.find_by(email: params[:email])
+   if user 
+    redirect   "http://localhost:3001/"
+  end
 
 end

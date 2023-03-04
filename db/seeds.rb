@@ -19,7 +19,7 @@ User.all.each do |user|
       title: Faker::Lorem.sentence,
       description: Faker::Lorem.paragraph,
       due_date: Faker::Time.forward(days: 30),
-      status: [completed, incomplete].sample,
+      status: [true, false].sample,
       user_id: user.id
     )
   end

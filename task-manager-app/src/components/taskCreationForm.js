@@ -8,7 +8,7 @@ function TaskCreationForm({ onSubmit }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    onSubmit({ name, description, dueDate });
+    console.log({ name, description, dueDate });
     setName('');
     setDescription('');
     setDueDate('');

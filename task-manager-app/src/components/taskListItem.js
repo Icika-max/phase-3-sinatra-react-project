@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import SelectedItem from './SelectedITem';
 
 function TaskListItem({ task, onClick }) {
   const [tasks, setTasks]=useState([])
+  const [selectedItem, setSelectedItem]=useState(false)
   useEffect(()=>{
     fetch ("http://localhost:9292/tasks")
     .then(r=>r.json())
@@ -10,10 +12,11 @@ function TaskListItem({ task, onClick }) {
   console.log(tasks)
   return (
     <li onClick={() => onClick(task.id)}>
-      <h3>{task.title}</h3>
-      <p>{task.dueDate}</p>
-      <p>{task.description}</p>
-      <p>Status: {task.status}</p>
+      <h3 onClick={()=>setSelectedItem(!selectedItem)}>{task.title}</h3>
+      <div>
+        {selectedItem ? <SelectedItem task={task}/> : ""}
+      </div>
+     
     </li>
   );
 }

@@ -61,7 +61,7 @@ function App() {
          <Routes>
        <Route exact path="/" element={<Login/>} />
        <Route path="/home" element={<Home/>} />
-          <Route path="/delete-task" element={<DeleteTask/>}/>
+          {/* <Route path="/delete-task" element={<DeleteTask/>}/> */}
           <Route path="/tasks" element={<TaskList/>} />
           <Route path="/task/:id" element={<TaskListItem/>} />
           <Route path="/taskCreationForm" element={<TaskCreationForm/>} />

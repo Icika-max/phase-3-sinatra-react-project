@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import SelectedItem from './SelectedITem';
+import usePatch from './UpdateStatus';
 
 function TaskListItem({ task, onClick }) {
   const [tasks, setTasks]=useState([])
@@ -11,13 +12,31 @@ function TaskListItem({ task, onClick }) {
   },[])
   console.log(tasks)
   return (
-    <li onClick={() => onClick(task.id)}>
-      <h3 onClick={()=>setSelectedItem(!selectedItem)}>{task.title}</h3>
+    <>
+    <li  onClick={() =>(task.id)}>
+      <h3 className='items' onClick={()=>setSelectedItem(!selectedItem)}>{task.title}</h3>
       <div>
         {selectedItem ? <SelectedItem task={task}/> : ""}
       </div>
      
     </li>
+    <button onClick={()=>{
+    const { error, patchResponse, patch } = usePatch(
+      `http://localhost:9292/tasks/${task.id}`
+    );
+    if (error) {
+      console.log(error);
+    }
+  
+    if (patchResponse) {
+      window.location.reload();
+    }
+    patch({
+      title: task.title,
+      description: task.description,
+    });
+    }}>update task</button>
+    </>
   );
 }
 

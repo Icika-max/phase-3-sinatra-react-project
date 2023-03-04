@@ -33,7 +33,8 @@ class ApplicationController < Sinatra::Base
     new_user=User.create(
       name: params[:name],
       email: params[:email],
-      # bakery_id: params[:bakery_id]
+      password: params[:password]
+     
     )
     new_user.to_json
   end
@@ -50,7 +51,8 @@ class ApplicationController < Sinatra::Base
     user=User.find(params[:id])
     user.update(
       name: params[:name],
-      email: params[:email]
+      email: params[:email],
+      password: params[:email]
     )
     user.to_json
   end

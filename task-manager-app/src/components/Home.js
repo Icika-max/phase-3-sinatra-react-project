@@ -11,13 +11,19 @@ function Home({ user }) {
   }
 
   return (
-    <div>
-      <div>
+    <div className='home-container'>
+      <div className='top-panel'>
         <img src="https://img.freepik.com/free-vector/office-time-management-composition_1284-73496.jpg?size=626&ext=jpg" alt="#" />
+        
+        <h1>Welcome to Task Manager!</h1>
+      <p>Keep track of your day-to-day tasks easily.</p>
       </div>
+      <div className='bottom-panel'>
+
       <h1>Welcome!</h1>
       <TaskCreationForm onSubmit={handleTaskSubmit} />
       <TaskList tasks={tasks} />
+      </div>
     </div>
   );
 }

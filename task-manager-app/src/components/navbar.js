@@ -26,7 +26,7 @@ function Navbar() {
        <NavLink to="/" className='nav-links'>Login</NavLink>
       </li> */}
       <li className='nav-item'>
-       <NavLink to="/create-task" className='nav-links'>CreateTask</NavLink>
+       <NavLink to="/delete-task" className='nav-links'>DeleteTask</NavLink>
        </li>
        {/* <li className='nav-item'>
        <NavLink to="/task" className='nav-links'>Tasks</NavLink>

@@ -16,6 +16,7 @@ import Navbar from './components/navbar';
 import Register from './components/register';
 import TaskListItem from './components/taskListItem';
 import AddUser from './components/AddUser';
+import DeleteTask from './components/DeleteTask';
 
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
          <Routes>
        <Route exact path="/" element={<Login/>} />
        <Route path="/home" element={<Home/>} />
-          <Route path="/create-task" element={<TaskCreationForm/>}/>
+          <Route path="/delete-task" element={<DeleteTask/>}/>
           <Route path="/tasks" element={<TaskList/>} />
           <Route path="/task/:id" element={<TaskListItem/>} />
           <Route path="/taskCreationForm" element={<TaskCreationForm/>} />

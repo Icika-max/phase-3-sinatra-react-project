@@ -19,6 +19,16 @@ class ApplicationController < Sinatra::Base
     tasks=Task.all
     tasks.to_json
   end
+  get '/tasks/:id' do
+    task = Task.find(params[:id])
+    if task.user.email == session[:user]
+      erb :task
+    else
+      'Task not found'
+    end
+  end
+  
+
   post '/new_user' do
     new_user=User.create(
       name: params[:name],
@@ -68,6 +78,14 @@ class ApplicationController < Sinatra::Base
      redirect   "http://localhost:3001/"
     end
   
+  end
+  delete '/tasks/:id' do
+    # find the task using the ID
+    task = Task.find(params[:id])
+    # delete the task
+    task.destroy
+    # send a response with the deleted task as JSON
+    task.to_json
   end
 
 

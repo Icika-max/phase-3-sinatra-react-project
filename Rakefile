@@ -2,7 +2,8 @@ require_relative "./config/environment"
 require "sinatra/activerecord/rake"
 
 desc "Start the server"
-task :server do  
+task :server do 
+  Rake::Task["db:migrate"].invoke 
   if ActiveRecord::Base.connection.migration_context.needs_migration?
     puts "Migrations are pending. Make sure to run `rake db:migrate` first."
     return

@@ -81,14 +81,14 @@ class ApplicationController < Sinatra::Base
     end
   
   end
-  delete '/tasks/:id' do
-    # find the task using the ID
-    task = Task.find(params[:id])
-    # delete the task
-    task.destroy
-    # send a response with the deleted task as JSON
-    task.to_json
-  end
+  # delete '/tasks/:id' do
+  #   # find the task using the ID
+  #   task = Task.find(params[:id])
+  #   # delete the task
+  #   task.destroy
+  #   # send a response with the deleted task as JSON
+  #   task.to_json
+  # end
 
 
 end

@@ -39,11 +39,11 @@ class ApplicationController < Sinatra::Base
 
   get '/users' do
     users=User.all
-    json.response(data: users)
+    json_response(data: users)
   end
   get '/tasks' do
     tasks=Task.all
-    json.response(data: tasks)
+    json_esponse(data: tasks)
   end
   get '/tasks/:id' do
     task = Task.find(params[:id])
@@ -62,7 +62,7 @@ class ApplicationController < Sinatra::Base
       password: params[:password]
      
     )
-    json.response(data: new_user)
+    json_response(data: new_user)
   end
   post '/new_task' do
     new_task=Task.create(
@@ -71,7 +71,7 @@ class ApplicationController < Sinatra::Base
       due_date: params[:due_date],
       status: params[:status]
     )
-    json.response(data: new_task)
+    json_response(data: new_task)
   end
   patch '/users/:id' do 
     user=User.find(params[:id])
@@ -80,7 +80,7 @@ class ApplicationController < Sinatra::Base
       email: params[:email],
       password: params[:email]
     )
-    json.response(data: user)
+    json_response(data: user)
   end
   patch '/tasks/:id' do 
     task=Task.find(params[:id])
@@ -91,14 +91,14 @@ class ApplicationController < Sinatra::Base
       due_date: params[:due_date]
 
     )
-    json.response(data: task)
+    json_response(data: task)
   end
   patch '/users/:id' do 
     user=Task.find(params[:id])
     user.update(
       status: params[:status]
     )
-    json.response(data: user)
+    json_response(data: user)
   end
   post '/login' do
     user= User.find_by(email: params[:email])

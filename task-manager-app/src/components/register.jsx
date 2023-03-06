@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { useNavigate } from "react-router"
 
 
@@ -15,7 +15,7 @@ export const Register=(props)=>{
     return(<div className="">
             <h2>Register</h2>
         
-    <div className='add-user'>
+    <div className='register-user'>
         <form className="register-form" action="http://localhost:9292/new_user" method="post">
             <input type="name" placeholder='user email' name='email'/>
             <input type="text" placeholder='user name' name='name' />

@@ -16,7 +16,7 @@ import Navbar from './components/navbar';
 import Register from './components/register';
 import TaskListItem from './components/taskListItem';
 import AddUser from './components/AddUser';
-import DeleteTask from './components/DeleteTask';
+// import DeleteTask from './components/DeleteTask';
 
 
 function App() {

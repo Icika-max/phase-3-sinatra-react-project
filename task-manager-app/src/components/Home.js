@@ -24,9 +24,9 @@ function Home({ user }) {
        {/* <li className='nav-item'>
        <NavLink to="/" className='nav-links'>Login</NavLink>
       </li> */}
-      <li className='nav-item'>
+      {/* <li className='nav-item'>
        <NavLink to="/delete-task" className='nav-links'>DeleteTask</NavLink>
-       </li>
+       </li> */}
        {/* <li className='nav-item'>
        <NavLink to="/task" className='nav-links'>Tasks</NavLink>
        </li> */}
@@ -58,7 +58,7 @@ function Home({ user }) {
       <TaskList tasks={tasks} />
       </div>
     </div>
-    <button onClick={()=>redirect("/login")} style={{
+    <button onClick={()=>redirect("/")} style={{
       position: "absolute",
       top: "10px",
       right: "10px"

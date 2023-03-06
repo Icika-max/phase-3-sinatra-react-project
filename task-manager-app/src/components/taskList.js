@@ -1,6 +1,7 @@
 import React from 'react';
 import TaskListItem from './taskListItem';
 import { useEffect, useState } from 'react';
+// import Search from './search';
 
 function TaskList() {
   const [tasks, setTasks]=useState([])
@@ -16,8 +17,10 @@ function TaskList() {
       <ul>
         {tasks.map((task) => (
           <TaskListItem key={task.id} task={task} />
+          
         ))}
       </ul>
+ 
     </div>
   );
 }

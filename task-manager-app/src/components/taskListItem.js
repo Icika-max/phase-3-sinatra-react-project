@@ -8,7 +8,7 @@ import usePatch from './UpdateStatus';
 function TaskListItem({ task}) {
   const [tasks, setTasks]=useState([])
   const [selectedItem, setSelectedItem]=useState(false)
-  const [searchQuery, setSearchQuery] = useState('');
+ 
 
 
 
@@ -19,13 +19,7 @@ function TaskListItem({ task}) {
   },[])
   console.log(tasks)
 
- 
-  const handleSearch = () => {
-    const filteredTasks = tasks.filter((task) => {
-      return task.due_date.includes(searchQuery);
-    },[]);
-    return filteredTasks
-  };
+  
 
   return (
     <div>
@@ -53,23 +47,8 @@ function TaskListItem({ task}) {
     });
     }}>update task</button>
 
-        <input
-         style={{
-          position: "absolute",
-          top: "10px",
-          right: "10px"}}
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-      <button onClick={handleSearch}
-      style={{
-        position: "absolute",
-        top: "10px",
-        right: "10px"}}>Search</button>
-      {filteredTasks.map((task) => (
-        <TaskListItem key={task.id} task={task} />
-      ))}
+      
+  
    
     </div>
  

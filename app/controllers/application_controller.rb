@@ -1,23 +1,49 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
+  # @api: Enable CORS Headers
   configure do
-    enable :sessions
-    set :session_secrete, "secret"
+    enable :cross_origin
   end
-  # Add your routes here
-  get "/" do
-    { message: "Good luck with your project!" }.to_json
+  before do
+    response.headers['Access-Control-Allow-Origin'] = '*'
+  end
+  options "*" do
+    response.headers["Allow"] = "GET, PUT, POST, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    200
+  end
+  # @api: Format the json response
+  def json_response(code: 200, data: nil)
+    status = [200, 201].include?(code) ? "SUCCESS" : "FAILED"
+    headers['Content-Type'] = 'application/json'
+    if data
+      [ code, { data: data, message: status }.to_json ]
+    end
+  end
+  # @views: Format the erb responses
+  def erb_response(file)
+    headers['Content-Type'] = 'text/html'
+    erb file
+  end
+  # @helper: not found error formatter
+  def not_found_response
+    json_response(code: 404, data: { error: "You seem lost. That route does not exist." })
+  end
+  # @api: 404 handler
+  not_found do
+    not_found_response
   end
 
   
 
   get '/users' do
     users=User.all
-   { users}.to_json
+    json.response(data: users)
   end
   get '/tasks' do
     tasks=Task.all
-    tasks.to_json
+    json.response(data: tasks)
   end
   get '/tasks/:id' do
     task = Task.find(params[:id])
@@ -36,7 +62,7 @@ class ApplicationController < Sinatra::Base
       password: params[:password]
      
     )
-    new_user.to_json
+    json.response(data: new_user)
   end
   post '/new_task' do
     new_task=Task.create(
@@ -45,7 +71,7 @@ class ApplicationController < Sinatra::Base
       due_date: params[:due_date],
       status: params[:status]
     )
-    new_task.to_json
+    json.response(data: new_task)
   end
   patch '/users/:id' do 
     user=User.find(params[:id])
@@ -54,7 +80,7 @@ class ApplicationController < Sinatra::Base
       email: params[:email],
       password: params[:email]
     )
-    user.to_json
+    json.response(data: user)
   end
   patch '/tasks/:id' do 
     task=Task.find(params[:id])
@@ -65,14 +91,14 @@ class ApplicationController < Sinatra::Base
       due_date: params[:due_date]
 
     )
-    task.to_json
+    json.response(data: task)
   end
   patch '/users/:id' do 
     user=Task.find(params[:id])
     user.update(
       status: params[:status]
     )
-    user.to_json
+    json.response(data: user)
   end
   post '/login' do
     user= User.find_by(email: params[:email])

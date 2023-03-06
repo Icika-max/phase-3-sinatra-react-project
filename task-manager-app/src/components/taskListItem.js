@@ -13,7 +13,7 @@ function TaskListItem({ task}) {
 
 
   useEffect(()=>{
-    fetch ("http://localhost:9292/tasks")
+    fetch ("https://icika.onrender.com/tasks")
     .then(r=>r.json())
     .then(data=>setTasks(data))
   },[])
@@ -32,7 +32,7 @@ function TaskListItem({ task}) {
     </li>
     <button onClick={()=>{
     const { error, patchResponse, patch } = usePatch(
-      `http://localhost:9292/tasks/${task.id}`
+      `https://icika.onrender.com/tasks/${task.id}`
     );
     if (error) {
       console.log(error);

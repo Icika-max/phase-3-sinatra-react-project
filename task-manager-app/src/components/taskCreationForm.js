@@ -17,7 +17,7 @@ function TaskCreationForm({ onSubmit }) {
 
   return (
     
-    <form className="form-container" action="http://localhost:9292/new_task" method='post'>
+    <form className="form-container" action="https://icika.onrender.com/new_task" method='post'>
       <label className='task'> 
         Task Name:
         <input type="name" placeholder='title' name='title'/>

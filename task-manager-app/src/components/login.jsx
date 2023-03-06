@@ -8,7 +8,7 @@ export const Login=({props})=>{
 
     const [user, setUser]=useState([])
   useEffect(()=>{
-    fetch ("http://localhost:9292/users")
+    fetch ("https://icika.onrender.com/users")
     .then(r=>r.json())
     .then(data=>setUser(data))
   },[])
@@ -50,7 +50,7 @@ export const Login=({props})=>{
         <div className="auth-form-container">
            
             <h2>Login</h2>
-        <form className="login-form" onSubmit={handleSubmit} action="http://localhost:9292/login" method="post">
+        <form className="login-form" onSubmit={handleSubmit} action="https://icika.onrender.com/login" method="post">
             <label htmlFor="email">email</label>
             <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email" required />
             <label htmlFor="password">password</label>

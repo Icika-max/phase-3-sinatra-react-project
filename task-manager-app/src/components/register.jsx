@@ -16,11 +16,11 @@ export const Register=(props)=>{
             <h2>Register</h2>
         
     <div className='register-user'>
-        <form className="register-form" action="http://localhost:9292/new_user" method="post">
+        <form className="register-form" action="https://icika.onrender.com/new_user" method="post">
             <input type="name" placeholder='user email' name='email'/>
             <input type="text" placeholder='user name' name='name' />
             <input type="text" placeholder='password' name='password' />
-            <button type="submit" onClick={()=>redirect('/home')}>Register</button>
+            <button type="submit" >Register</button>
             
         </form>
     </div>

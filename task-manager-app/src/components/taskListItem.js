@@ -15,7 +15,7 @@ function TaskListItem({ task}) {
   useEffect(()=>{
     fetch ("https://icika.onrender.com/tasks")
     .then(r=>r.json())
-    .then(data=>setTasks(data))
+    .then(data=>setTasks(data.data))
   },[])
   console.log(tasks)
 

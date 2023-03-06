@@ -10,7 +10,7 @@ export const Login=({props})=>{
   useEffect(()=>{
     fetch ("https://icika.onrender.com/users")
     .then(r=>r.json())
-    .then(data=>setUser(data))
+    .then(data=>setUser(data.data))
   },[])
   console.log(user)
 

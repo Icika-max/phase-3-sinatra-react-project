@@ -43,16 +43,16 @@ class ApplicationController < Sinatra::Base
   end
   get '/tasks' do
     tasks=Task.all
-    json_esponse(data: tasks)
+    json_response(data: tasks)
   end
-  get '/tasks/:id' do
-    task = Task.find(params[:id])
-    if task.user.email == session[:user]
-      erb :task
-    else
-      'Task not found'
-    end
-  end
+  # get '/tasks/:id' do
+  #   task = Task.find(params[:id])
+  #   if task.user.email == session[:user]
+  #     erb :task
+  #   else
+  #     'Task not found'
+  #   end
+  # end
   
 
   post '/new_user' do

@@ -2,8 +2,12 @@
 
 
 Task Manager is a web application that allows users to keep track of their tasks easily. The application is built with React on the front-end and Ruby on the back-end.
-# To view in browser folloe the following link
-https://sensational-treacle-6a5009.netlify.app/
+
+# To view the backend in browser follow the following link
+https://icika.onrender.com
+# To view the backend in browser follow the following link
+https://silly-taffy-fa4fff.netlify.app/
+
 
 #  Features
 The following features are available in the Task Manager app:
